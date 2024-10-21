@@ -1,4 +1,4 @@
-// Se crea la clase servicios donde se genera la entidad con sus categorias que seran reflejadas en la tabla de la base de datos
+// Se crea la clase servicios donde se genera la entidad con sus categorias que seran reflejadas en la tabla de la base de datos, validacion UNIQUE, LENGTH NULLABLE
 package com.proyecto.Proyecto1.Model;
 
 import jakarta.persistence.Column;
@@ -14,18 +14,18 @@ import lombok.Data;
 @Data
 public class servicios {
     @Id
-   @Column
+   @Column (name = "Id Servicio")
    private Long idservicio;
    
-   @Column
+   @Column (name = "Nombre Servicio", unique =true, nullable =false, length =50)
    private String nombreServicio;
    
-   @Column 
+   @Column (nullable= false, length =10)
    private long Costo;
    
-   @Column 
+   @Column (name = "Descripcion", nullable =false, length =50)
    private String descripcion; 
    
-    @Column 
+    @Column (name = "Estado", nullable =false, length =20)
    private String estado;
 }
